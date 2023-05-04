@@ -1,22 +1,28 @@
 class Start extends Scene {
     create() {
-        this.engine.setTitle("Title goes here"); // TODO: replace this text using this.engine.storyData to find the story title
+        this.engine.setTitle(this.engine.storyData.Title); // DONE: replace this text using this.engine.storyData to find the story title
         this.engine.addChoice("Begin the story");
     }
 
     handleChoice() {
-        this.engine.gotoScene(Location, "Home"); // TODO: replace this text by the initial location of the story
+        this.engine.gotoScene(Location, this.engine.storyData["InitialLocation"]); // DONE: replace this text by the initial location of the story
     }
 }
 
 class Location extends Scene {
     create(key) {
-        let locationData = undefined; // TODO: use `key` to get the data object for the current story location
-        this.engine.show("Body text goes here"); // TODO: replace this text by the Body of the location data
-        
-        if(true) { // TODO: check if the location has any Choices
-            for(let choice of ["example data"]) { // TODO: loop over the location's Choices
-                this.engine.addChoice("action text"); // TODO: use the Text of the choice
+        let locationData = key; // DONE: use `key` to get the data object for the current story location
+        // SOLVED: How do i use this variable to access the body text and choices?
+        // CHECK: Does this work with other choices?
+
+        console.log(this.engine.storyData.Locations[locationData]);
+        this.engine.show(this.engine.storyData.Locations[locationData]["Body"]); // TODO: replace this text by the Body of the location data
+        // NOTE: only works for the first time, the second time it fails is shown as undefined
+
+        if(this.engine.storyData.Locations[locationData]["Choices"]) { // DONE: check if the location has any Choices
+            console.log(this.engine.storyData.Locations[locationData]["Choices"]);
+            for(let choice of this.engine.storyData.Locations[locationData]["Choices"]) { // DONE?: loop over the location's Choices
+                this.engine.addChoice(choice["Text"], choice["Target"]); // DONE?: use the Text of the choice
                 // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
             }
         } else {
