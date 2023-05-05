@@ -1,4 +1,4 @@
-# StoryGraphTool
+# S3: Story Graph Tool
 
 An exercise in building data-driven game design
 
