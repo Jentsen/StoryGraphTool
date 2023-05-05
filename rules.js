@@ -11,19 +11,14 @@ class Start extends Scene {
 
 class Location extends Scene {
     create(key) {
-        let locationData = key; // DONE: use `key` to get the data object for the current story location
-        // SOLVED: How do i use this variable to access the body text and choices?
-        // CHECK: Does this work with other choices?
+        let locationData = this.engine.storyData.Locations[key]; // DONE: use `key` to get the data object for the current story location
+        console.log(locationData.Body);
+        this.engine.show(locationData["Body"]); // DONE: replace this text by the Body of the location data
 
-        console.log(this.engine.storyData.Locations[locationData]);
-        this.engine.show(this.engine.storyData.Locations[locationData]["Body"]); // TODO: replace this text by the Body of the location data
-        // NOTE: only works for the first time, the second time it fails is shown as undefined
-
-        if(this.engine.storyData.Locations[locationData]["Choices"]) { // DONE: check if the location has any Choices
-            console.log(this.engine.storyData.Locations[locationData]["Choices"]);
-            for(let choice of this.engine.storyData.Locations[locationData]["Choices"]) { // DONE?: loop over the location's Choices
-                this.engine.addChoice(choice["Text"], choice["Target"]); // DONE?: use the Text of the choice
-                // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
+        if(locationData["Choices"]) { // DONE: check if the location has any Choices
+            for(let choice of locationData["Choices"]) { // DONE: loop over the location's Choices
+                this.engine.addChoice(choice["Text"], choice); // DONE: use the Text of the choice
+                // DONE: add a useful second argument to addChoice so that the current code of handleChoice below works
             }
         } else {
             this.engine.addChoice("The end.")
