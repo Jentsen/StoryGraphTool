@@ -1,49 +1,49 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "Southern California Life",
+    "Credits": "Created by Jentsen Maniti(jemaniti@ucsc.edu).",
+    "InitialLocation": "Los Angeles",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Los Angeles": {
+            "Body": "You've arrived in LA! The air here is worse than you thought...",
             "Choices": [
                 {
                     "Text": "South",
-                    "Target": "Porter"
+                    "Target": "Orange County"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+        "Orange County": {
+            "Body": "You head downwards and arrive at Orange County! The air is not too bad here!",
             "Choices": [
                 {
                     "Text": "North",
-                    "Target": "Kresge"
+                    "Target": "Los Angeles"
+                },
+                {
+                    "Text": "East",
+                    "Target": "Riverside"
+                }
+            ]
+        },
+        "Riverside": {
+            "Body": "Riverside, boy it's hot! The air is okay I guess.",
+            "Choices": [
+                {
+                    "Text": "West",
+                    "Target": "Orange County"
                 },
                 {
                     "Text": "South",
-                    "Target": "Rachel Carson"
+                    "Target": "San Diego"
                 }
             ]
         },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
+        "San Diego": {
+            "Body": "You made it all the way to San Diego! The air is alright I guess, but anything is better than LA!",
             "Choices": [
                 {
                     "Text": "North",
-                    "Target": "Porter"
-                },
-                {
-                    "Text": "South",
-                    "Target": "Oakes"
-                }
-            ]
-        },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
-            "Choices": [
-                {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Target": "Riverside"
                 },
                 {
                     "Text": "South",
@@ -52,7 +52,7 @@
             ]
         },
         "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+            "Body": "A tall, tall wall looms in front of me. What's the view on the other side?"
         }
     }
 }
